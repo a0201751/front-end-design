@@ -1,0 +1,189 @@
+body {
+	margin: 0;
+}
+
+img {
+	vertical-align: bottom;
+}
+
+a {
+	display: inline-block;
+}
+
+/* body container */
+.container {
+	width: 1188px;
+	height: 1600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* header */
+.header {
+	background-color: #DCE6F2;
+	height: 120px;
+	padding: 10px 100px 17px 100px;
+	box-sizing: border-box;
+}
+
+.header:After {
+	content: none;
+	display: block;
+	clear: both;
+}
+
+/* left side of header */
+.header-left {
+	float: left;
+}
+
+.logo {
+	max-height: 96px;
+	max-width: 163px;
+}
+
+.logo img {
+	max-height: 96px;
+}
+
+/* right side of header */
+.header-right {
+	padding-top: 52px;
+	float: right;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+	list-style: none;
+	float: left;
+}
+
+nav ul li a {
+	display: inline-block;
+	text-decoration: none;
+	font: bold 31pt "Calibri";
+	color: #000000;
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+/* main area */
+main {
+	height: 1290px;
+	display: inline-block;
+	background-color: #F2F2F2;
+	box-sizing: border-box;
+}
+
+/* the article under main image */
+article {
+	display: block;
+	height: 900px;
+	/*background-color: red;*/	/* show the article area */
+	margin: 20px 168px;
+	
+}
+
+/* sections of article */
+section {
+	display: inline-block;
+	height: auto;
+	/*background-color: blue;*/ /* show the section area */
+	width: 100%;
+	margin: 13px 0px;
+}
+
+/* sections' header */
+section h2 {
+	display: block;
+	margin: 0px;
+	font: bold 24pt "Century Gothic";
+	text-align: center;
+}
+
+/* information of section (without header) */
+.info {
+	margin-left: -14px;
+	margin-right: -14px;
+}
+
+.arrow {
+	vertical-align: top;
+	margin: 75px 4px;
+}
+
+#photo a img {
+	max-width: 32px;
+}
+
+/* Introducation of shake leader */
+section p {
+	margin: 7px 25px;
+	display: inline-block;
+	font: normal 14pt "Arial Unicode MS";
+	text-align: left;
+}
+
+/* all figures in section */
+section figure{
+	display: inline-block;
+	margin: 7px 14px;
+}
+
+/* footer */
+footer {
+	height: 152px;
+	background-color: #C7D9F1;
+	padding: 17px 0px;
+	box-sizing: border-box;
+}
+
+/* footer icons */
+footer ul {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+footer li {
+	list-style: none;
+	text-decoration: none;
+	float: left;
+	margin-left: 11px;
+	margin-right: 11px;
+}
+
+footer a {
+	display: inline-block;
+	height: auto;
+}
+
+.icons {
+	display: inline-block;
+	height: 48px;
+	margin: 0px 454px;
+	vertical-align: bottom;
+}	
+
+.icons:After {
+	display: block;
+	content: none;
+	clear: both;
+}
+
+/* resize footer image */
+footer img {
+	max-height: 48px;
+}
+
+/* copyight text */
+p {
+	font: normal 24pt "Calibri";
+	text-align: center;
+	line-height: 32px;
+	margin: 20px 0px;
+}
