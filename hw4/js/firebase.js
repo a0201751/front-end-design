@@ -94,8 +94,8 @@ $(document).ready(function() {
 
 	function uploadImage() {
 		var file = $(this)[0].files[0];				// get the input file //
-		console.log(file.name);
-		if(file) {									// if the file is not empty, upload the input file to firebase storage //		
+		//console.log(file.name);
+		if(file.name) {									// if the file is not empty, upload the input file to firebase storage //		
 			var storage = firebase.storage().ref();
 			storage.child('images/' + file.name).put(file).then(function(snapshot) {
 				console.log("update success");
@@ -104,7 +104,9 @@ $(document).ready(function() {
 				firebase.database().ref().child('user/' + user.uid).update({
 					photoURL: photoURL
 				});
-				$('#profileImage').attr('src', photoURL);
+				updateUI(firebase.auth().currentUser);
+				//$('#profileImage').attr('src', snapshot.metadata.downloadURLs[0]);
+				//$('#settingsProfileImage').attr('src', snapshot.metadata.downloadURLs[0]);
 			}).catch(function(e) {
 				console.log(e.message);
 			});
@@ -222,7 +224,7 @@ function updateChatroom()
       	var $messageElement = $("<li>");
       	var $senderImg = $("<img src='' class='chat-image'>");
       	var $nameElement = $("<h4>").addClass('chat-name');
-      	var $messageText = $("<div>").addClass('chat-text').text(data.message);
+      	var $messageText = $("<p>").addClass('chat-text').text(data.message);
       	
       	if (uid == firebase.auth().currentUser.uid) {
         	$messageElement.addClass('avatar');

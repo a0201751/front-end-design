@@ -64,7 +64,9 @@ ul {
   margin: 0px;
   padding: 20px;
   height: 300px;
-  overflow: auto;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 ul li {
@@ -108,7 +110,7 @@ ul .example-chat-username {
 }
 
 .chat-text {
-	display: block;
+	display: inline-block;
 	background-color: #F0F0F0;
 	border-radius: 10px;
 	padding: 0 5px;
