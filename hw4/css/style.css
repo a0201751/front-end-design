@@ -1,0 +1,196 @@
+.mdl-card {
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.mdl-button {
+	margin: 0 4px;
+}
+
+.btn-row {
+	display: block;
+	text-align: right;
+}
+
+figure {
+	text-align: center;
+	margin: 0;
+}
+
+.profile-image {
+	max-width: 200px;
+	border-radius: 50%;
+}
+
+.profile-name {
+	text-align: center;
+}
+
+.mdl-cell {
+	width: 100%;
+	margin: 0;
+}
+
+.mdl-cell label {
+	font-size: 13pt;
+	vertical-align: top;
+	line-height: 25px;
+	/*text-align: center;*/
+}
+
+.profile-name h2 {
+	text-align: center;
+	margin: 0;
+}
+
+.mdl-cell p#detail {
+	text-align: center;
+}
+
+.mdl-cell p {
+	font-size: 12pt;
+	margin: 5px 5px;
+	padding: 0 15px;
+	text-align: justify;
+}
+
+.chat-list {
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 20px;
+  height: 300px;
+  overflow: auto;
+}
+
+ul li {
+    font-family: Roboto;
+    font-size: 120%;
+    font-weight: 300;
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+
+ul li:last-child {
+    margin: 0px;
+}
+
+ul .example-chat-username {
+    margin-right: 10px;
+}
+
+.avatar {
+	float: right;
+	text-align: right;
+}
+
+.other {
+	float: left;
+}
+
+.chat-image {
+	display: inline-block;
+	max-width: 30px;
+	border-radius: 50%;
+}
+
+.chat-name {
+	display: inline-block;
+	margin: 0;
+	font-size: 18pt;
+	line-height: 22px;
+	vertical-align: bottom;
+	margin: 0 5px;
+}
+
+.chat-text {
+	display: block;
+	background-color: #F0F0F0;
+	border-radius: 10px;
+	padding: 0 5px;
+	margin: 5px 0;
+	width: 200px;
+}
+
+.upload {
+	display: none;
+}
+
+.mdl-card__title {
+	padding: 13px;
+}
+
+.mdl-card__title a {
+	display: inline-block;
+	vertical-align: bottom;
+	padding: 0;
+	margin-left: 187px;
+	margin-right: 0;
+	line-height: 26px;
+	color: #FFFFFF;
+	text-align: right;
+}
+
+.mdl-tabs__tab-bar a {
+	display: inline-block;
+	width: 110px;
+	padding: 0;
+	text-align: center;
+}
+
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+	background-color: rgb(255,255,255);
+	display: inline-block;
+}
+
+.msg-area:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.msg-area .mdl-textfield {
+	padding: 8px 0;
+}
+
+.msg-area .mdl-textfield__label {
+	top: 16px;
+}
+
+.msg-area .mdl-textfield__label:after {
+	bottom: 8px;
+}
+
+.msg-text {
+	float: left;
+	width: 220px;
+}
+
+.msg-btn {
+	float: right;
+	vertical-align: bottom;
+}
+
+.logout {
+	width: 24px;
+	height: 24px;
+}
+
+.logout:hover {
+	opacity: 0.5;
+}
+
+hr {
+	display: inline-block;
+	width: 90px;
+	margin: 0 5px;
+}
+
+.split {
+	margin-top: 20px;
+	text-align: center;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Chat Room</title>
+	<!-- Roboto Font -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+	<!-- Material Design Lite -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+
+  	<!-- Custom style -->
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	
+
+	<div class="mdl-card mdl-shadow--2dp">
+	    <div class="mdl-card__title mdl-color--light-blue-700 mdl-color-text--white">
+	    	<h2 class="mdl-card__title-text" id="cardTitle">OutSider</h2>
+	    	<a href="#" id ="btnSignOut">
+	    		<svg class="logout" viewBox="0 0 24 24">
+				    <path fill="#FFFFFF" d="M17,17.25V14H10V10H17V6.75L22.25,12L17,17.25M13,2A2,2 0 0,1 15,4V8H13V4H4V20H13V16H15V20A2,2 0 0,1 13,22H4A2,2 0 0,1 2,20V4A2,2 0 0,1 4,2H13Z" />
+				</svg>
+	    	</a>
+	    </div>
+	    <div class="mdl-card__supporting-text" id="signInWindow">
+
+		    <form action="#">
+		      	<div class="mdl-textfield mdl-js-textfield">
+		        	<input class="mdl-textfield__input" type="text" id="email">
+		        	<label class="mdl-textfield__label" for="email">E-mail</label>
+		      	</div>
+		      	<div class="mdl-textfield mdl-js-textfield">
+		        	<input class="mdl-textfield__input" type="password" id="password">
+		        	<label class="mdl-textfield__label" for="password">Password</label>
+		      	</div>
+		    </form>
+
+		    <div class="btn-row">
+			    <button class="mdl-button mdl-js-button mdl-button--raised" id="btnSignIn">Sign In</button>
+			    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id ="btnSignUp">Sign Up</button>
+		    </div>
+	  </div>
+
+
+	    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="outsiderWindow">
+			<div class="mdl-tabs__tab-bar mdl-color--light-blue-600">
+		      <a href="#chatroom-panel" class="mdl-tabs__tab mdl-color-text--white is-active">Chatroom</a>
+		      <a href="#profile-panel" class="mdl-tabs__tab mdl-color-text--white">Profile</a>
+		      <a href="#settings-panel" class="mdl-tabs__tab mdl-color-text--white">Settings</a>
+		  	</div>
+
+			<div class="mdl-tabs__panel mdl-card__supporting-text is-active" id="chatroom-panel">
+		      	<ul id='messages-field' class="chat-list"></ul>
+		      	<div class="msg-area">
+			      	<div class="mdl-textfield mdl-js-textfield msg-text">
+			      		<input class="mdl-textfield__input" type="text" id="msg">
+	    				<label class="mdl-textfield__label" for="msg">Text...</label>
+			      	</div>
+			      	<button class="mdl-button mdl-js-button mdl-button--raised msg-btn" id="send">Send</button>
+		      	</div>
+			</div>
+
+			<div class="mdl-tabs__panel mdl-card__supporting-text" id="profile-panel">
+			    <content>
+			    	<div>
+				    	<figure>
+				    		<img src="image/default.png" class="profile-image" id="profileImage" />
+				    	</figure>
+				    	<div class="profile-name">
+				    		<h2 id="name"></h2>
+				    	</div>
+			    	</div>
+					<div class="mdl-cell mdl-cell--12-col">
+						<div>
+							<p id="detail"></p>
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--12-col">
+						<div>
+							<div class="split">
+								<hr>
+								<label>Description</label>
+								<hr>
+							</div>
+							<p id="description"></p>
+						</div>
+					</div>
+			    </content>
+			</div>
+
+			<div class="mdl-tabs__panel mdl-card__supporting-text" id="settings-panel">
+			    <form action="#">
+			    	<input type="file" id="file" class="upload" />
+				    <figure>
+				    	<a href="#" id="profileImageAnchor"><img src="image/default.png" class="profile-image" id="settingsProfileImage" /></a>
+				    </figure>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					    <input class="mdl-textfield__input" type="text" id="settingsName">
+					    <label class="mdl-textfield__label" for="settingsName">Name</label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					    <input class="mdl-textfield__input" type="text" id="settingsOccuption">
+					    <label class="mdl-textfield__label" for="settingsOccuption">Occuption</label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					    <input class="mdl-textfield__input" type="text" id="settingsAge">
+					    <label class="mdl-textfield__label" for="settingsAge">Age</label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield">
+					    <textarea class="mdl-textfield__input" type="text" rows= "3" id="settingsDescription" ></textarea>
+					    <label class="mdl-textfield__label" for="settingsDescription">Description</label>
+					</div>
+			    </form>
+
+			    <div class="btn-row">
+			    	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button" id ="update">Update</button>
+			    </div>
+			</div>
+		</div>
+	</div>
+
+	<!-- firebase.js -->
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+	<!-- material design js -->
+	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+	<!-- jquery -->
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<!-- custom js -->
+	<script type="text/javascript" src="js/firebase.js"></script>
+</body>
+</html>
