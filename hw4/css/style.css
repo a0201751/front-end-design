@@ -52,6 +52,7 @@ figure {
 	margin: 5px 5px;
 	padding: 0 15px;
 	text-align: justify;
+
 }
 
 .chat-list {
@@ -116,6 +117,7 @@ ul .example-chat-username {
 	padding: 0 5px;
 	margin: 5px 0;
 	width: 200px;
+	word-break:break-all;
 }
 
 .upload {

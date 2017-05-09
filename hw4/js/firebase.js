@@ -24,7 +24,9 @@ $(document).ready(function() {
 	const $profileImageAnchor = $('#profileImageAnchor');
 
 	var user = firebase.auth().currentUser;
-	updateUI(user);
+	$.when(updateUI(user)).done(function(){
+		$('#messages-field')[0].scrollTop = $('#messages-field')[0].scrollHeight;
+	});
 
 	// SignUp //
 	$btnSignUp.click(function(e) {
@@ -44,11 +46,6 @@ $(document).ready(function() {
 		promise.then(function(user) {
 			console.log("Hello, " + user.email);
 			const dbUserId = dbUser.child(user.uid);
-			
-			/*var src = firebase.storage().ref('/images/default.png').getDownloadURL().then(function(url) {
-				// set -> new data set //
-				return url;
-			});	*/
 			// set user data to firebase //
 			dbUserId.set({
 				email: user.email,
@@ -105,8 +102,6 @@ $(document).ready(function() {
 					photoURL: photoURL
 				});
 				updateUI(firebase.auth().currentUser);
-				//$('#profileImage').attr('src', snapshot.metadata.downloadURLs[0]);
-				//$('#settingsProfileImage').attr('src', snapshot.metadata.downloadURLs[0]);
 			}).catch(function(e) {
 				console.log(e.message);
 			});
@@ -146,17 +141,18 @@ $(document).ready(function() {
 			$('#msg').val('');
 		}
 	});
+
+	$('.mdl-tabs__tab').click(function() {
+		$('#messages-field')[0].scrollTop = $('#messages-field')[0].scrollHeight;
+	});
+
+	$('.chat-list').change(function() {
+		$('#messages-field')[0].scrollTop = $('#messages-field')[0].scrollHeight;
+	});
 });
 
 function updateUI(user) 
-{
-	/*var src;
-	firebase.storage().ref('/images/default.png').getDownloadURL().then(function(url) {
-		// set -> new data set //
-		src = url;
-	});	
-	console.log(src);*/
-	
+{	
 	// user login //
 	if(user) {
 		$('#btnSignIn').attr('disabled', 'disabled');
@@ -178,15 +174,11 @@ function updateUI(user)
 		$('#btnSignOut').css('display', 'none');
 		$('#outsiderWindow').css('display', 'none');
 	}
-
-	
 }
 
 function updateProfile(data)
 {
 	$('#name').html((data.name) ? data.name : "unknown");
-	//$('#occuption').html((data.occuption) ? data.occuption : "unknown");
-	//$('#age').html((data.age) ? data.age : "unknown");
 	$('#detail').html("age." + ((data.age) ? data.age : "unknown") + ", " + ((data.occuption) ? data.occuption : "unknown"));
 	$('#description').html((data.description) ? data.description : "unknown");
 	$('#profileImage').attr('src', data.photoURL);
@@ -217,7 +209,7 @@ function updateChatroom()
 {
 	$('#messages-field').empty();
 	var dbChatRoom = firebase.database().ref().child('chatroom');
-	dbChatRoom.limitToLast(15).on('child_added', function(snapshot){
+	dbChatRoom.startAt().on('child_added', function(snapshot){
       	var data = snapshot.val();
       	var message = data.message;
       	var uid = data.uid;
