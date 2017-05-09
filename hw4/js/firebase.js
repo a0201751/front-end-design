@@ -24,9 +24,7 @@ $(document).ready(function() {
 	const $profileImageAnchor = $('#profileImageAnchor');
 
 	var user = firebase.auth().currentUser;
-	$.when(updateUI(user)).done(function(){
-		$('#messages-field')[0].scrollTop = $('#messages-field')[0].scrollHeight;
-	});
+	updateUI(user);
 
 	// SignUp //
 	$btnSignUp.click(function(e) {
@@ -145,10 +143,6 @@ $(document).ready(function() {
 	$('.mdl-tabs__tab').click(function() {
 		$('#messages-field')[0].scrollTop = $('#messages-field')[0].scrollHeight;
 	});
-
-	$('.chat-list').change(function() {
-		$('#messages-field')[0].scrollTop = $('#messages-field')[0].scrollHeight;
-	});
 });
 
 function updateUI(user) 
@@ -161,9 +155,9 @@ function updateUI(user)
 		$('#outsiderWindow').removeAttr('style');
 		firebase.database().ref('/user/' + user.uid).once('value').then(function(snapshot) {
 			var data = snapshot.val();
+			updateChatroom();
 			updateProfile(data);
 			updateSettings(data);
-			updateChatroom();
 		});
 	}
 	// no user //
@@ -217,7 +211,8 @@ function updateChatroom()
       	var $senderImg = $("<img src='' class='chat-image'>");
       	var $nameElement = $("<h4>").addClass('chat-name');
       	var $messageText = $("<p>").addClass('chat-text').text(data.message);
-      	
+      	$('#messages-field').append($messageElement);
+
       	if (uid == firebase.auth().currentUser.uid) {
         	$messageElement.addClass('avatar');
         	$messageElement.append($nameElement).append($senderImg).append($messageText);
@@ -229,10 +224,8 @@ function updateChatroom()
     	firebase.database().ref('/user/' + uid).once('value').then(function(snapshot) {
     		$senderImg.attr('src', snapshot.val().photoURL);
     		$nameElement.text(snapshot.val().name);
-    		
     	});
 
-    	$('#messages-field').append($messageElement);
     	$('#messages-field')[0].scrollTop = $('#messages-field')[0].scrollHeight;
     });
 }

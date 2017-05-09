@@ -58,6 +58,7 @@ figure {
 .chat-list {
 	padding: 0;
 	margin-bottom: 20px;
+	padding-bottom: 20px;
 }
 
 ul {
@@ -97,7 +98,7 @@ ul .example-chat-username {
 
 .chat-image {
 	display: inline-block;
-	max-width: 30px;
+	max-height: 30px;
 	border-radius: 50%;
 }
 
@@ -108,6 +109,7 @@ ul .example-chat-username {
 	line-height: 22px;
 	vertical-align: bottom;
 	margin: 0 5px;
+	/*word-break:break-all;*/
 }
 
 .chat-text {
